@@ -1,111 +1,66 @@
-/* RESET */
+/* ================= RESET ================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ================= BODY ================= */
 body {
-  font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   background:
-    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(120, 219, 226, 0.15) 0%, transparent 50%),
-    linear-gradient(135deg, #0a0b0f 0%, #1a1d2e 50%, #0f1419 100%);
+    radial-gradient(circle at 20% 50%, rgba(120,119,198,.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,119,198,.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120,219,226,.15) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0b0f, #1a1d2e, #0f1419);
   background-attachment: fixed;
   color: #e5e7eb;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* CONTAINER */
+/* ================= CONTAINER ================= */
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 40px 20px;
 }
 
-/* HEADER */
+/* ================= HEADING ================= */
 h1 {
   font-size: 42px;
   text-align: center;
   margin-bottom: 50px;
+  font-weight: 800;
   background: linear-gradient(90deg, #2563eb, #7f5af0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-/* GRID – 2 cards desktop, 1 card mobile */
+/* ================= GRID ================= */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(280px, 1fr));
-   justify-content: center; /* center cards horizontally */
   gap: 24px;
-  width: 100%;
 }
 
-@media (max-width: 900px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-/* LAST CARD CENTER */
-.card-grid > .card:last-child {
-  justify-self: center;
-}
-
-/* CARD */
+/* ================= CARD ================= */
 .card {
-  width: 100%;
-  background: rgba(26, 31, 44, 0.8);
+  background: rgba(26,31,44,.85);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   padding: 32px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  border: 1px solid rgba(255,255,255,.1);
+  transition: .4s ease;
 }
 
 .card:hover {
-  transform: translateY(-12px) scale(1.02);
-  border-color: rgba(102, 126, 234, 0.3);
-  box-shadow:
-    0 20px 60px rgba(102, 126, 234, 0.15),
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  background: rgba(30, 36, 52, 0.9);
+  transform: translateY(-10px) scale(1.02);
+  background: rgba(30,36,52,.95);
 }
 
-.card:hover::before {
-  opacity: 1;
-}
-
-/* CARD TEXT */
 .card h2 {
   font-size: 22px;
-  font-weight: 600;
   margin-bottom: 12px;
 }
 
@@ -115,529 +70,133 @@ h1 {
   line-height: 1.6;
 }
 
-/* CARD BUTTONS – HORIZONTAL */
+/* ================= BUTTONS ================= */
 .card-actions {
-  margin-top: 24px;
   display: flex;
-  flex-direction: row;
   gap: 12px;
   justify-content: center;
+  margin-top: 24px;
 }
 
-/* BUTTONS */
 .btn {
-  width: auto;
   padding: 16px 24px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(17, 24, 39, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(17,24,39,.85);
   color: #e5e7eb;
-  cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.025em;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s;
-}
-
-.btn:hover::before {
-  left: 100%;
+  cursor: pointer;
+  transition: .3s ease;
 }
 
 .btn:hover {
-  background: rgba(31, 41, 55, 0.9);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  border-color: rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea, #764ba2);
   border: none;
-  color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-.btn.primary::before {
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-}
-
-.btn.primary:hover {
-  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-  transform: translateY(-3px) scale(1.02);
-}
+/* ================= CAROUSEL ================= */
 .carousel {
   display: flex;
   justify-content: center;
-  margin-bottom: 30px; /* neeche thoda space diya */
+  margin-bottom: 30px;
 }
 
 .carousel-img {
-  width: 400px;  /* image badi ki */
-  height: 240px; /* image badi ki */
+  width: 400px;
+  height: 240px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
-/* buttons remove karne ke liye CSS optional */
-.carousel button {
-  display: none;
-}
-
-/* HOT WALLET STYLES */
-
-/* Container for hot wallet simulation */
+/* ================= HOT WALLET ================= */
 .hot-wallet-container {
   max-width: 600px;
-  margin: 0 auto;
-  position: relative;
+  margin: auto;
 }
 
-/* DeFi dApp Interface */
 .defi-dapp {
   background: linear-gradient(145deg, #1e293b, #334155);
-  border: 1px solid #475569;
   border-radius: 16px;
   padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  animation: fadeUp 0.6s ease;
-}
-
-.defi-dapp.connected {
-  border-color: #10b981;
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+  border: 1px solid #475569;
 }
 
 .dapp-header {
   display: flex;
-  align-items: center;
   gap: 16px;
+  align-items: center;
   margin-bottom: 16px;
 }
 
 .dapp-logo {
-  font-size: 48px;
+  width: 72px;
+  height: 72px;
+  font-size: 36px;
   background: linear-gradient(135deg, #10b981, #059669);
   border-radius: 12px;
-  width: 80px;
-  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .dapp-info h3 {
-  margin: 0 0 4px 0;
-  color: #f1f5f9;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .dapp-info p {
-  margin: 0;
-  color: #94a3b8;
   font-size: 14px;
-}
-
-.connected-status {
-  color: #10b981 !important;
-  font-weight: 600;
+  color: #94a3b8;
 }
 
 .dapp-stats {
   display: flex;
-  gap: 16px;
-  margin-top: 8px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .dapp-stats span {
-  background: rgba(56, 189, 248, 0.1);
+  background: rgba(56,189,248,.1);
   color: #38bdf8;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
-  font-weight: 600;
 }
 
-.dapp-content {
-  text-align: center;
-}
-
-.dapp-content p {
-  margin-bottom: 20px;
-  color: #cbd5e1;
-  font-size: 16px;
-}
-
-.connect-btn, .approve-btn {
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.connect-btn:hover, .approve-btn:hover {
-  background: linear-gradient(90deg, #1d4ed8, #2563eb);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-}
-
-.approve-btn {
-  background: linear-gradient(90deg, #f59e0b, #d97706);
-}
-
-.approve-btn:hover {
-  background: linear-gradient(90deg, #d97706, #b45309);
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
-}
-
-/* Approval Dialog */
-.approval-dialog {
-  background: linear-gradient(145deg, #0f172a, #1e293b);
-  border: 2px solid #f59e0b;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
-  animation: fadeUp 0.6s ease;
-}
-
-.dialog-header h3 {
-  margin: 0 0 8px 0;
-  color: #f1f5f9;
-  font-size: 20px;
-}
-
-.dialog-header p {
-  margin: 0;
-  color: #94a3b8;
-  font-size: 14px;
-}
-
-.approval-details {
-  margin: 20px 0;
-  padding: 16px;
-  background: rgba(245, 158, 11, 0.1);
-  border-radius: 8px;
-  border-left: 4px solid #f59e0b;
-}
-
-.contract-info {
-  margin-bottom: 12px;
-  color: #e2e8f0;
-  font-size: 14px;
-}
-
-.warning-badge {
-  background: #dc2626;
-  color: white;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  margin-left: 8px;
-}
-
-.spend-amount {
-  margin-bottom: 12px;
-  color: #e2e8f0;
-  font-size: 14px;
-}
-
-.risk-warning {
-  color: #fca5a5;
-}
-
-.risk-warning p {
-  margin: 8px 0;
-  font-size: 14px;
-}
-
-.dialog-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-end;
-}
-
-.cancel-btn {
-  background: #374151;
-  color: #e5e7eb;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s ease;
-}
-
-.cancel-btn:hover {
-  background: #4b5563;
-}
-
-.danger-btn {
-  background: linear-gradient(90deg, #dc2626, #b91c1c);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.danger-btn:hover {
-  background: linear-gradient(90deg, #b91c1c, #991b1b);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
-}
-
-/* Draining Progress */
-.draining-progress {
-  background: linear-gradient(145deg, #450a0a, #7f1d1d);
-  border: 2px solid #dc2626;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 20px;
-  animation: dangerPulse 1s ease-in-out infinite alternate;
-}
-
-.attack-alert {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #fca5a5;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.transaction-history h4 {
-  color: #fecaca;
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.tx-list {
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.tx-item {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #7f1d1d;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 8px;
-  transition: all 0.3s ease;
-}
-
-.tx-item.completed {
-  background: rgba(220, 38, 38, 0.1);
-  border-color: #dc2626;
-  animation: suspiciousFlash 2s ease-in-out infinite;
-}
-
-.tx-hash {
-  color: #94a3b8;
-  font-family: monospace;
-  font-size: 12px;
-  margin-bottom: 4px;
-}
-
-.tx-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
-}
-
-.tx-amount {
-  color: #ef4444;
-  font-weight: 600;
-}
-
-.tx-gas {
-  color: #6b7280;
-  font-size: 12px;
-}
-
-.tx-status {
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.tx-status.pending {
-  background: #f59e0b;
-  color: white;
-}
-
-.tx-status.completed {
-  background: #dc2626;
-  color: white;
-}
-
-.tx-to {
-  color: #6b7280;
-  font-size: 12px;
-}
-
-/* Attack Complete */
-.attack-complete {
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
-  border: 2px solid #6b7280;
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  animation: fadeUp 0.6s ease;
-}
-
-.final-alert {
-  color: #9ca3af;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.final-alert p {
-  color: #6b7280;
-  font-size: 14px;
-  margin: 0;
-}
-
-/* Wallet Balance */
+/* ================= WALLET BALANCE ================= */
 .wallet-balance {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
+  margin-top: 16px;
   background: linear-gradient(145deg, #1e293b, #334155);
-  border: 1px solid #475569;
   border-radius: 12px;
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  animation: fadeUp 0.6s ease;
-  transition: all 0.3s ease;
-}
-
-.wallet-balance.draining {
-  animation: drainingPulse 1s ease-in-out infinite alternate;
-  border-color: #ef4444;
-  background: linear-gradient(145deg, #450a0a, #7f1d1d);
-}
-
-.wallet-balance.drained {
-  animation: none;
-  border-color: #dc2626;
-  background: linear-gradient(145deg, #450a0a, #7f1d1d);
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
-}
-
-.balance-amount {
+  padding: 12px;
+  text-align: center;
   font-weight: 600;
-  color: #facc15;
 }
 
-.wallet-balance.draining .balance-amount {
-  color: #fca5a5;
-}
+/* ================= RESPONSIVE ================= */
 
-.wallet-balance.drained .balance-amount {
-  color: #fca5a5;
-}
-
-/* Under Attack Container */
-.hot-wallet-container.under-attack {
-  animation: shake 0.5s ease-in-out;
-}
-
-/* RESPONSIVE FONT */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 32px;
-  }
-  .card h2 {
-    font-size: 20px;
-  }
-  .card p {
-    font-size: 14px;
-  }
-
-  .card-actions {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .hot-wallet-container {
-    max-width: 100%;
-  }
-
-  .dapp-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .dapp-stats {
-    justify-content: center;
-  }
-
-  .dialog-actions {
-    flex-direction: column;
-  }
-
-  .wallet-balance {
-    position: static;
-    margin-top: 20px;
-    transform: none;
-    text-align: center;
+/* Tablet */
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: 1fr;
   }
 }
+
+/* Mobile */
 @media (max-width: 768px) {
 
-  /* Container padding */
   .container {
     padding: 24px 16px;
   }
 
-  /* Heading */
   h1 {
     font-size: 30px;
     margin-bottom: 32px;
   }
 
-  /* Grid -> single column */
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  /* Card spacing */
   .card {
     padding: 24px 20px;
   }
@@ -650,75 +209,37 @@ h1 {
     font-size: 14px;
   }
 
-  /* Buttons stack */
   .card-actions {
     flex-direction: column;
-    gap: 10px;
   }
 
   .btn {
     width: 100%;
-    padding: 14px;
   }
 
-  /* Carousel image responsive */
   .carousel-img {
     width: 100%;
     height: auto;
     max-height: 220px;
   }
 
-  /* Hot wallet container */
-  .hot-wallet-container {
-    max-width: 100%;
-    padding: 0 8px;
-  }
-
-  /* dApp header center */
   .dapp-header {
     flex-direction: column;
     text-align: center;
   }
 
-  .dapp-logo {
-    width: 64px;
-    height: 64px;
-    font-size: 36px;
-  }
-
-  .dapp-info h3 {
-    font-size: 20px;
-  }
-
-  /* Stats center */
   .dapp-stats {
     justify-content: center;
-    flex-wrap: wrap;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 26px;
   }
 
-  /* Wallet balance move to bottom */
-  .wallet-balance {
-    position: static;
-    transform: none;
-    margin-top: 16px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  /* Dialog buttons stack */
-  .dialog-actions {
-    flex-direction: column;
-  }
-
-  .cancel-btn,
-  .danger-btn {
-    width: 100%;
-  }
-
-  /* Transactions readable */
-  .tx-details {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+  .carousel-img {
+    max-height: 180px;
   }
 }
