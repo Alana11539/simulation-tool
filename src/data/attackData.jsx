@@ -67,7 +67,7 @@ const attackData = [
       "Centralized exchanges are prime targets for hackers due to the concentration of funds. Security protocols must be extremely strict."
   },
   {
-    id: "hotWallet",
+    id: "hotwallet",
     numericId: "4",
     name: "Hot Wallet Attack",
     description:

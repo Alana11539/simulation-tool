@@ -10,8 +10,14 @@ const attacks = [
 
 function Home() {
   return (
-    <div className="container">
-      <h1>Crypto Attack Simulation Platform</h1>
+    <div className="container floating-particles">
+      <div className="hero-section">
+        <h1 className="hero-title">CryptoSec Simulator</h1>
+        <h2 className="hero-subtitle">Explore Blockchain Vulnerabilities</h2>
+        <p className="homepage-description">
+          Dive into the world of blockchain security with our interactive simulation platform. Learn about and visualize various cryptocurrency attacks including phishing, 51% attacks, Sybil attacks, and more.
+        </p>
+      </div>
 
       <div className="card-grid">
         {attacks.map(a => (

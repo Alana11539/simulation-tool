@@ -1,0 +1,245 @@
+/* ================= RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(120,119,198,.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,119,198,.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120,219,226,.15) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0b0f, #1a1d2e, #0f1419);
+  background-attachment: fixed;
+  color: #e5e7eb;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* ================= HEADING ================= */
+h1 {
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #2563eb, #7f5af0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= GRID ================= */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: rgba(26,31,44,.85);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid rgba(255,255,255,.1);
+  transition: .4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  background: rgba(30,36,52,.95);
+}
+
+.card h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #a0a7b5;
+  line-height: 1.6;
+}
+
+/* ================= BUTTONS ================= */
+.card-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.btn {
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(17,24,39,.85);
+  color: #e5e7eb;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+}
+
+/* ================= CAROUSEL ================= */
+.carousel {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.carousel-img {
+  width: 400px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ================= HOT WALLET ================= */
+.hot-wallet-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.defi-dapp {
+  background: linear-gradient(145deg, #1e293b, #334155);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #475569;
+}
+
+.dapp-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.dapp-logo {
+  width: 72px;
+  height: 72px;
+  font-size: 36px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dapp-info h3 {
+  font-size: 22px;
+}
+
+.dapp-info p {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.dapp-stats {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dapp-stats span {
+  background: rgba(56,189,248,.1);
+  color: #38bdf8;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* ================= WALLET BALANCE ================= */
+.wallet-balance {
+  margin-top: 16px;
+  background: linear-gradient(145deg, #1e293b, #334155);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 24px 16px;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 32px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .carousel-img {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+  }
+
+  .dapp-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dapp-stats {
+    justify-content: center;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 26px;
+  }
+
+  .carousel-img {
+    max-height: 180px;
+  }
+}
